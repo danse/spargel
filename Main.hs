@@ -25,9 +25,9 @@ parseFloat t = read (T.unpack (T.replace (T.pack ",") (T.pack ".") t))
 
 parseDate :: T.Text -> UTCTime
 -- i will use it with newer versions of the library
--- parseDate = (F.parseTimeOrError True defaultTimeLocale "%g.%m.%d") . T.pack
+-- parseDate = (F.parseTimeOrError True defaultTimeLocale "%d.%m.%g") . T.pack
 -- the following is deprecated
-parseDate = (F.readTime defaultTimeLocale "%g.%m.%d") . T.unpack
+parseDate = (F.readTime defaultTimeLocale "%d.%m.%g") . T.unpack
 
 data Line = Line {
  auftragskonto :: T.Text,
